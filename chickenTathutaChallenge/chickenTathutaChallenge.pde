@@ -1,5 +1,6 @@
 char[] chickenTathuta = {'チ', 'キ', 'ン', 'タ', 'ツ', 'タ'};
 IntList intIndex;
+String[] ansChickenTathuta = {"", "", "", "", "", ""};
 
 void setup(){
   intIndex = new IntList(chickenTathuta.length);
@@ -8,8 +9,10 @@ void setup(){
   }
   intIndex.shuffle();
   for(int i = 0; i < chickenTathuta.length; i++){
-    print(chickenTathuta[intIndex.get(i)]);
-    print(" ");
+    ansChickenTathuta[i] = "" + chickenTathuta[intIndex.get(i)];
   }
-  println("丼 食べた");
+  String resultTathuta = join(ansChickenTathuta, " ");
+  println(resultTathuta + " 丼 食 べ た");
+  if(join(ansChickenTathuta, "") == "チキンタツタ") println("やったね！");
+  else println("m9(^Д^)ﾌﾟｷﾞｬｰ");
 }

@@ -66,3 +66,12 @@ class lineBoll{
         ellipse(bx, by, size, size);
     }
 }
+
+// 撮影用
+int photo = 0;
+void keyPressed() {
+    if(key == 's'){
+        save("frame/" + photo + ".png");
+        photo++;
+    }
+}

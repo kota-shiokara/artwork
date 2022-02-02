@@ -4,4 +4,4 @@
 
 ![image of ThirtyMinutes](./frame/0.png)  
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/qJOUB0eDzCs/0.jpg)]](http://www.youtube.com/watch?v=qJOUB0eDzCs)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/qJOUB0eDzCs/0.jpg)](http://www.youtube.com/watch?v=qJOUB0eDzCs)

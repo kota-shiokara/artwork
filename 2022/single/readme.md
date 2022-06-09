@@ -14,3 +14,8 @@
 ## [GrassSprinkle](./GrassSprinkle/)
 [joons-renderer](https://github.com/joonhyublee/joons-renderer)練習用作品  
 練習用に簡単なものを弄ってたのでネットに転がってるのと大差無い
+
+## [GrassHelix](./GrassHelix/)
+「硝子玉の二重螺旋」
+joons-rendererを用いた作品。  
+硝子玉っていいですよね。昔小樽に行った時、硝子細工体験というものをやったんですが、透過率が高く綺麗に仕上げるにはそれなりの職人技が必要なのだと思い知らされました。

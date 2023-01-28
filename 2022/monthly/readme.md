@@ -5,3 +5,6 @@ ARTiSにおいて月一でお題に沿った作品を作ろうという突発企
 
 ## [October「ハロウィン」](./October)
 Happy Halloween! 紫の塊とパンプキン、幽霊と共に
+
+## [November「秋」](./November)
+FallenFall.

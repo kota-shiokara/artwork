@@ -16,7 +16,7 @@ void draw() {
     background(0);
     strokeWeight(1);
     for(int i = -height / 2; i < height / 2; i++) {
-        stroke(180, map(i, -height / 2, height / 2, 100, 60), 100);
+        stroke(180, map(i, -height / 2, height / 2, 100, 30), 100);
         line(-width / 2, i, width / 2, i);
     }
 
@@ -42,21 +42,30 @@ void keyPressed() {
 
 class Bubble {
     float x, y;
-    float dy;
+    float dx, dy;
     float minDelta = 0.5, maxDelta = 5;
+    boolean isDx = false;
 
     float size;
     float minSize = 15, maxSize = 25;
+
+    int xChangeFrameRate;
+    float minXChangeFrameRate = 10, maxXChangeFrameRate = 30;
 
     Bubble(float _x, float _y) {
         this.x = _x;
         this.y = _y;
         this.size = floor(random(minSize, maxSize));
+        this.dx = random(minDelta, maxDelta);
         this.dy = random(minDelta, maxDelta);
+        this.xChangeFrameRate = (int)floor(random(minXChangeFrameRate, maxXChangeFrameRate));
     }
 
     void update() {
         this.y -= this.dy;
+        if (frameCount % this.xChangeFrameRate == 0) {
+            this.isDx = !this.isDx;
+        }
     }
 
     void display() {
@@ -64,7 +73,11 @@ class Bubble {
         stroke(0, 0, 100);
         strokeWeight(2);
 
-        ellipse(this.x, this.y, size, size);
+        if (this.isDx) {
+            ellipse(this.x + this.dx, this.y, size, size);
+        } else {
+            ellipse(this.x, this.y, size, size);
+        }
     }
 
     boolean isInDisplay() {

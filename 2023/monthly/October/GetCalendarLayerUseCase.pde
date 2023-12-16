@@ -23,10 +23,10 @@ class GetCalendarLayerUseCase {
         color sundayColor = color(255, 0, 0);
         DayOfWeek[] dayOfWeek = DayOfWeek.values();
         
-        // Draw
+        // layerの描画開始
         calendarLayer.beginDraw();
         
-        // 曜日
+        // 日曜日から土曜日までの描画
         for (int i = 0; i < 7; i++) {
             int ordinal = (i + 1) % 7;
             if (ordinal == 0) calendarLayer.fill(sundayColor);
@@ -34,7 +34,7 @@ class GetCalendarLayerUseCase {
             calendarLayer.text(dayOfWeek[i].toString().substring(0, 3), widthCell + (ordinal * widthCell), heightCell);
         }
         
-        // 日付
+        // 曜日に合わせて日付を描画
         for (int i = 1; i <= calendarMap.size(); i++) {
             calendarLayer.fill(normalDayColor);
             int dayOfWeekNumber = calendarMap.get(i).getValue() % 7;

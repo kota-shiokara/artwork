@@ -20,10 +20,10 @@ public class GetDayOfWeekUseCase {
         Map<Integer, DayOfWeek> map = new HashMap();
         int lastDayOfMonth = currentDate.lengthOfMonth();
         
+        // 1: Monday, 2: Tuesday, 3: Wednesday, 4: Thursday, 5: Friday, 6: Saturday, 7: Sunday
         for (int i = 1; i <= lastDayOfMonth; i++) {
             LocalDate firstDayOfMonth = LocalDate.of(someYear, someMonth, i);
             DayOfWeek firstDayOfWeek = firstDayOfMonth.getDayOfWeek();
-            // println(i + " is " + firstDayOfWeek + "(" + firstDayOfWeek.getValue() + ")");
             map.put(i, firstDayOfWeek);
         }
         return map;

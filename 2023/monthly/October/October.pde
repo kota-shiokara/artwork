@@ -7,7 +7,7 @@ void setup() {
     size(360, 800); // Pixel 7aの大きさ 9:20
     background(0);
 
-    calendarLayer = (new GetCalendarLayerUseCase(width, height / 2)).getCalendarLayer();
+    calendarLayer = (new GetCalendarLayerUseCase(width, height / 2, 2023, 8)).getCalendarLayer();
 }
 
 void draw() {

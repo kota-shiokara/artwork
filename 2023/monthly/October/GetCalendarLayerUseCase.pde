@@ -1,18 +1,38 @@
 class GetCalendarLayerUseCase {
     private PGraphics calendarLayer;
 
-    GetCalendarLayerUseCase(int contentWidth, int contentHeight) {
-        calendarLayer = setupCalendar(contentWidth, contentHeight);
+    GetCalendarLayerUseCase(
+        int contentWidth,
+        int contentHeight,
+        int someYear,
+        int someMonth
+    ) {
+        calendarLayer = setupCalendar(contentWidth, contentHeight, someYear, someMonth);
+    }
+
+    GetCalendarLayerUseCase(
+        int contentWidth,
+        int contentHeight
+    ) {
+        LocalDate now = LocalDate.now();
+        int someYear = now.getYear();
+        int someMonth = now.getMonthValue();
+        calendarLayer = setupCalendar(contentWidth, contentHeight, someYear, someMonth);
     }
 
     public PGraphics getCalendarLayer() {
         return this.calendarLayer;
     }
     
-    private PGraphics setupCalendar(int contentWidth, int contentHeight) {
+    private PGraphics setupCalendar(
+        int contentWidth,
+        int contentHeight,
+        int someYear,
+        int someMonth
+    ) {
         // Setup
         GetDayOfWeekUseCase getDayOfWeekUseCase = new GetDayOfWeekUseCase();
-        Map<Integer, DayOfWeek> calendarMap = getDayOfWeekUseCase.getDayOfWeekCurrentMonth();
+        Map<Integer, DayOfWeek> calendarMap = getDayOfWeekUseCase.getDayOfWeekSomeMonth(someYear, someMonth);
         PGraphics calendarLayer = createGraphics(contentWidth, contentHeight);
         
         final int widthCell = contentWidth / 9;
@@ -30,7 +50,7 @@ class GetCalendarLayerUseCase {
         for (int i = 0; i < 7; i++) {
             int ordinal = (i + 1) % 7;
             if (ordinal == 0) calendarLayer.fill(sundayColor);
-            else calendarLayer.fill(normalDayColor);        
+            else calendarLayer.fill(normalDayColor);
             calendarLayer.text(dayOfWeek[i].toString().substring(0, 3), widthCell + (ordinal * widthCell), heightCell);
         }
         
@@ -44,7 +64,7 @@ class GetCalendarLayerUseCase {
             }
             
             int textWidth = (calendarMap.get(i).getValue() % 7);
-            calendarLayer.text(i, widthCell + (textWidth * widthCell), weekCount * heightCell);
+            calendarLayer.text(i, widthCell + (textWidth * widthCell), heightCell + (weekCount * heightCell));
         }
         
         calendarLayer.endDraw();

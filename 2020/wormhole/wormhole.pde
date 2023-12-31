@@ -67,3 +67,9 @@ class Wormhole{
   }
   
 }
+
+void keyPressed(){
+  if(key == 's'){
+    saveFrame("frame/export.png");
+  }
+}

@@ -1,4 +1,6 @@
 .DS_Store
+
+# Processing
 applet
 application.linux32
 application.linux64
